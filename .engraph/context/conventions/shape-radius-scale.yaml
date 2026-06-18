@@ -1,0 +1,31 @@
+id: shape-radius-scale
+name: "Border Radius Scale"
+type: convention
+sub_type: code-convention
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Border radius is a fixed vocabulary, applied by component role:
+    - Cards / banners / quick-link tiles / "more changes" tiles: rounded-2xl (16px)
+    - Text / CTA / chip buttons: rounded-[50px] (pill)
+    - Icon-only buttons: rounded-full
+    - Chat input bar: rounded-xl (12px)
+    - User chat bubble: rounded-[16px_4px_16px_16px] (asymmetric, points to user)
+    - Small inner accent tiles (e.g. icon chips): rounded-xl / rounded-[10.29px]
+
+  Do not substitute shadcn defaults like rounded-md / rounded-lg. The
+  asymmetric chat-bubble radius is a deliberate detail, not an accident.
+
+violations:
+  - "Using rounded-md/rounded-lg on cards or buttons"
+  - "Making icon buttons pill-shaped or CTA buttons fully round"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+  - "src/app/pages/sections/promotion-assistant/promotion-assistant.ts"

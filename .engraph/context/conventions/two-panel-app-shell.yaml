@@ -1,0 +1,37 @@
+id: two-panel-app-shell
+name: "Two-Panel App Shell (68/31)"
+type: convention
+sub_type: architectural-pattern
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  The Frame component (src/app/pages/frame) is the app shell: a centered
+  max-w-[1704px] container wrapping a single CSS grid `grid-cols-[68fr_31fr]`
+  with `min-h-[980px] items-stretch gap-0`. The left column is
+  <section aria-label="Benefits overview"> (the dashboard); the right column is
+  <aside aria-label="Promotion assistant"> (the Bryte AI panel).
+
+  The split is a fixed fractional ratio (~68.7% / 31.3%), not a fixed-width
+  sidebar. The AI panel is a permanent right rail, not a drawer/modal. New
+  top-level surfaces compose into this shell rather than inventing their own
+  page layout.
+
+examples:
+  - file: "src/app/pages/frame/frame.html"
+    snippet: |
+      <div class="grid min-h-[980px] w-full grid-cols-[68fr_31fr] items-stretch gap-0">
+        <section aria-label="Benefits overview" class="min-w-0"><app-benefits-overview /></section>
+        <aside aria-label="Promotion assistant" class="min-w-0"><app-promotion-assistant /></aside>
+      </div>
+
+violations:
+  - "Rendering the Bryte panel as a drawer/modal instead of the right rail"
+  - "Using a fixed-px sidebar width instead of the 68fr/31fr ratio"
+
+reference_files:
+  - "src/app/pages/frame/frame.ts"

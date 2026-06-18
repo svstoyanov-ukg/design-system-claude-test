@@ -1,0 +1,36 @@
+id: figma-svg-icons
+name: "Figma-Exported SVG Icons"
+type: convention
+sub_type: project-quirk
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "public/figmaAssets"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Icons and logos are rendered as Figma-exported SVGs referenced by absolute
+  public path: <img src="/figmaAssets/{name}.svg" /> (icons are typically
+  24x24). Assets live in public/figmaAssets/ (icon.svg, bryte-logo.svg,
+  ukg-logo.svg, calendar.svg, go-forward.svg, fullscreen.svg, microphone.svg,
+  etc.).
+
+  This is a deliberate departure from the usual fullstack-js guidance to use
+  lucide-react: these are pixel-exact exports from the Figma source. Add new
+  design icons to /figmaAssets and reference them the same way rather than
+  reintroducing lucide-react for design surfaces.
+
+migration_guide: |
+  Generic/non-design UI (e.g. shadcn primitives in src/app/components/ui)
+  may still use lucide-react. This quirk applies to the design surfaces that
+  mirror the Figma file.
+
+violations:
+  - "Swapping a Figma-exported icon for a lucide-react icon on a design surface"
+  - "Inlining raw SVG markup instead of referencing /figmaAssets"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+  - "src/app/pages/sections/promotion-assistant/promotion-assistant.ts"

@@ -1,0 +1,33 @@
+id: content-width-responsive-grid
+name: "Content Width and Responsive Grid Collapse"
+type: convention
+sub_type: code-convention
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Left-panel content is constrained to max-w-[960px] and horizontally centered,
+  with a horizontal-padding ramp (header: px-4 sm:px-8 lg:px-[152px]; gray band:
+  px-4 sm:px-8 lg:px-0).
+
+  Every multi-column grid is declared mobile-first and restores its designed
+  columns only at lg: (or a custom breakpoint):
+    - Quick links: grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+    - Main body:   grid-cols-1 lg:grid-cols-[minmax(0,575px)_361px]
+    - Hero card:   grid-cols-[minmax(0,1fr)_260px] max-[820px]:grid-cols-1
+    - Plan rows:   flex-col sm:flex-row
+
+  New content should respect the 960px reading width and stack to a single
+  column on small screens before restoring the designed multi-column layout.
+
+violations:
+  - "Full-bleed content that ignores the 960px max width"
+  - "Non-responsive grids that don't collapse to one column on mobile"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"

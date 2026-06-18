@@ -1,1 +1,296 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Display:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Figma-derived design tokens — single source of truth.              */
+/* Ported from the design-system slice (design-system.json).          */
+/* Do not introduce raw hex/px; reach for a token here instead.       */
+/* ------------------------------------------------------------------ */
+:root {
+  --action-monochromeenabledondark: rgba(255, 255, 255, 0.94);
+  --action-monochromeenabledonlight: rgba(0, 0, 0, 0.65);
+  --action-monochromelowemphasisenabledonlight: rgba(0, 0, 0, 0.43);
+  --action-ondarkactionhighenabled: rgba(19, 53, 44, 1);
+  --actionactionactive: rgba(48, 37, 141, 1);
+  --actionactionenabled: rgba(14, 59, 53, 1);
+  --actionactionmidenabled: rgba(120, 207, 184, 0.2);
+  --actionbranddarker: rgba(0, 81, 81, 1);
+  --actiontextactionenabled: rgba(1, 108, 162, 1);
+  --annotationannotation-on-dark: rgba(237, 224, 255, 0.9);
+  --annotationannotation-on-light: rgba(134, 41, 255, 1);
+  --avatar-lg-font-family: "DM Sans", Helvetica;
+  --avatar-lg-font-size: 28px;
+  --avatar-lg-font-style: normal;
+  --avatar-lg-font-weight: 600;
+  --avatar-lg-letter-spacing: 2px;
+  --avatar-lg-line-height: 28px;
+  --avatar-sm-font-family: "DM Sans", Helvetica;
+  --avatar-sm-font-size: 12px;
+  --avatar-sm-font-style: normal;
+  --avatar-sm-font-weight: 600;
+  --avatar-sm-letter-spacing: 0.5px;
+  --avatar-sm-line-height: 12px;
+  --backgroundaibackgroundenabled: rgba(255, 255, 255, 1);
+  --badgecharcoal: rgba(79, 79, 79, 1);
+  --badgeimportant: rgba(232, 13, 36, 1);
+  --borderbackgroundstrokeenabled: rgba(235, 220, 205, 1);
+  --borderborderhighemphasisonlight: rgba(0, 0, 0, 0.42);
+  --borderborderlowemphasisonlight: rgba(0, 0, 0, 0.1);
+  --borderbordermidemphasisonlight: rgba(0, 0, 0, 0.15);
+  --brandbrand: rgba(19, 53, 44, 1);
+  --button-lg-enabled-font-family: "Volte Rounded", Helvetica;
+  --button-lg-enabled-font-size: 16px;
+  --button-lg-enabled-font-style: normal;
+  --button-lg-enabled-font-weight: 400;
+  --button-lg-enabled-letter-spacing: -0.6000000238418579px;
+  --button-lg-enabled-line-height: 18px;
+  --button-md-enabled-font-family: "Volte Rounded", Helvetica;
+  --button-md-enabled-font-size: 14px;
+  --button-md-enabled-font-style: normal;
+  --button-md-enabled-font-weight: 400;
+  --button-md-enabled-letter-spacing: -0.10000000149011612px;
+  --button-md-enabled-line-height: 16px;
+  --button-md-monochrome-font-family: "DM Sans", Helvetica;
+  --button-md-monochrome-font-size: 14px;
+  --button-md-monochrome-font-style: normal;
+  --button-md-monochrome-font-weight: 600;
+  --button-md-monochrome-letter-spacing: -0.3499999940395355px;
+  --button-md-monochrome-line-height: 16px;
+  --copy-italic-font-family: "DM Sans", Helvetica;
+  --copy-italic-font-size: 16px;
+  --copy-italic-font-style: italic;
+  --copy-italic-font-weight: 400;
+  --copy-italic-letter-spacing: 0px;
+  --copy-italic-line-height: 24px;
+  --copy-md-font-family: "DM Sans", Helvetica;
+  --copy-md-font-size: 16px;
+  --copy-md-font-style: normal;
+  --copy-md-font-weight: 400;
+  --copy-md-letter-spacing: 0.15000000596046448px;
+  --copy-md-line-height: 24px;
+  --copy-sm-font-family: "DM Sans", Helvetica;
+  --copy-sm-font-size: 14px;
+  --copy-sm-font-style: normal;
+  --copy-sm-font-weight: 400;
+  --copy-sm-letter-spacing: 0.1500000059604645px;
+  --copy-sm-line-height: 20px;
+  --copy-sm-link-font-family: "DM Sans", Helvetica;
+  --copy-sm-link-font-size: 14px;
+  --copy-sm-link-font-style: normal;
+  --copy-sm-link-font-weight: 400;
+  --copy-sm-link-letter-spacing: 0.1500000059604645px;
+  --copy-sm-link-line-height: 20px;
+  --data-md-high-font-family: "Noto Sans Display", Helvetica;
+  --data-md-high-font-size: 16px;
+  --data-md-high-font-style: normal;
+  --data-md-high-font-weight: 500;
+  --data-md-high-letter-spacing: 0px;
+  --data-md-high-line-height: 22px;
+  --data-md-mid-font-family: "DM Sans", Helvetica;
+  --data-md-mid-font-size: 16px;
+  --data-md-mid-font-style: normal;
+  --data-md-mid-font-weight: 400;
+  --data-md-mid-letter-spacing: -0.3499999940395355px;
+  --data-md-mid-line-height: 22px;
+  --data-sm-high-font-family: "Noto Sans Display", Helvetica;
+  --data-sm-high-font-size: 14px;
+  --data-sm-high-font-style: normal;
+  --data-sm-high-font-weight: 500;
+  --data-sm-high-letter-spacing: 0px;
+  --data-sm-high-line-height: 18px;
+  --data-sm-low-font-family: "Noto Sans Display", Helvetica;
+  --data-sm-low-font-size: 14px;
+  --data-sm-low-font-style: normal;
+  --data-sm-low-font-weight: 400;
+  --data-sm-low-letter-spacing: 0px;
+  --data-sm-low-line-height: 18px;
+  --data-sm-mid-font-family: "DM Sans", Helvetica;
+  --data-sm-mid-font-size: 14px;
+  --data-sm-mid-font-style: normal;
+  --data-sm-mid-font-weight: 400;
+  --data-sm-mid-letter-spacing: -0.300000011920929px;
+  --data-sm-mid-line-height: 18px;
+  --data-xs-condensed-high-font-family: "DM Sans", Helvetica;
+  --data-xs-condensed-high-font-size: 12px;
+  --data-xs-condensed-high-font-style: normal;
+  --data-xs-condensed-high-font-weight: 700;
+  --data-xs-condensed-high-letter-spacing: -1px;
+  --data-xs-condensed-high-line-height: 12px;
+  --display-md-font-family: "DM Sans", Helvetica;
+  --display-md-font-size: 41px;
+  --display-md-font-style: normal;
+  --display-md-font-weight: 600;
+  --display-md-letter-spacing: -0.25px;
+  --display-md-line-height: 48px;
+  --display-sm-font-family: "DM Sans", Helvetica;
+  --display-sm-font-size: 32px;
+  --display-sm-font-style: normal;
+  --display-sm-font-weight: 600;
+  --display-sm-letter-spacing: -0.699999988079071px;
+  --display-sm-line-height: 40px;
+  --display-xs-font-family: "Volte Rounded", Helvetica;
+  --display-xs-font-size: 26px;
+  --display-xs-font-style: normal;
+  --display-xs-font-weight: 500;
+  --display-xs-letter-spacing: -0.20000000298023224px;
+  --display-xs-line-height: 32px;
+  --focusfocusborderondark: rgba(255, 255, 255, 0.65);
+  --focusfocusborderonlight: rgba(84, 154, 200, 1);
+  --form-sm-enabled-font-family: "DM Sans", Helvetica;
+  --form-sm-enabled-font-size: 14px;
+  --form-sm-enabled-font-style: normal;
+  --form-sm-enabled-font-weight: 400;
+  --form-sm-enabled-letter-spacing: -0.300000011920929px;
+  --form-sm-enabled-line-height: 22px;
+  --heading-box-heading-font-family: "DM Sans", Helvetica;
+  --heading-box-heading-font-size: 20px;
+  --heading-box-heading-font-style: normal;
+  --heading-box-heading-font-weight: 600;
+  --heading-box-heading-letter-spacing: -1px;
+  --heading-box-heading-line-height: 21px;
+  --heading-heading-lg-font-family: "DM Sans", Helvetica;
+  --heading-heading-lg-font-size: 26px;
+  --heading-heading-lg-font-style: normal;
+  --heading-heading-lg-font-weight: 600;
+  --heading-heading-lg-letter-spacing: -0.8999999761581421px;
+  --heading-heading-lg-line-height: 31px;
+  --heading-heading-md-font-family: "DM Sans", Helvetica;
+  --heading-heading-md-font-size: 23px;
+  --heading-heading-md-font-style: normal;
+  --heading-heading-md-font-weight: 600;
+  --heading-heading-md-letter-spacing: -0.8999999761581421px;
+  --heading-heading-md-line-height: 28px;
+  --heading-heading-sm-font-family: "DM Sans", Helvetica;
+  --heading-heading-sm-font-size: 20px;
+  --heading-heading-sm-font-style: normal;
+  --heading-heading-sm-font-weight: 600;
+  --heading-heading-sm-letter-spacing: -0.699999988079071px;
+  --heading-heading-sm-line-height: 24px;
+  --heading-heading-xs-font-family: "Volte Rounded", Helvetica;
+  --heading-heading-xs-font-size: 18px;
+  --heading-heading-xs-font-style: normal;
+  --heading-heading-xs-font-weight: 400;
+  --heading-heading-xs-letter-spacing: -0.25px;
+  --heading-heading-xs-line-height: 22px;
+  --heading-volte-semibold-s-font-family: "Volte Rounded", Helvetica;
+  --heading-volte-semibold-s-font-size: 20px;
+  --heading-volte-semibold-s-font-style: normal;
+  --heading-volte-semibold-s-font-weight: 400;
+  --heading-volte-semibold-s-letter-spacing: -0.6000000238418579px;
+  --heading-volte-semibold-s-line-height: 24px;
+  --navigation-heading-font-family: "DM Sans", Helvetica;
+  --navigation-heading-font-size: 20px;
+  --navigation-heading-font-style: normal;
+  --navigation-heading-font-weight: 400;
+  --navigation-heading-letter-spacing: -0.20000000298023224px;
+  --navigation-heading-line-height: 24px;
+  --surfaceaisurface: rgba(255, 255, 255, 1);
+  --surfacesurfacelight: rgba(255, 255, 255, 1);
+  --surfacesurfacelightdarker: rgba(245, 245, 245, 1);
+  --text-colortextdisabledonlight: rgba(0, 0, 0, 0.3);
+  --text-colortexthighemphasisondark: rgba(255, 255, 255, 1);
+  --text-colortexthighemphasisonlight: rgba(0, 0, 0, 0.87);
+  --text-colortextlowemphasisonlight: rgba(0, 0, 0, 0.6);
+}
+
+/* shadcn primitive tokens (used by ported ui/* primitives) */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 20.2% 65.1%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 216 34% 17%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+/* Design-system animations */
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

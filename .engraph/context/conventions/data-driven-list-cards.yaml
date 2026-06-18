@@ -1,0 +1,31 @@
+id: data-driven-list-cards
+name: "Data-Driven List Cards with Separators"
+type: convention
+sub_type: architectural-pattern
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  A list of items lives inside a SINGLE Card with CardContent p-0. Each item is
+  a p-6 row mapped from a module-top data array, with a
+  <Separator className="mx-6 bg-black/10" /> rendered BETWEEN items only
+  (index < rows.length - 1), never after the last.
+
+  Each row is a two-column molecule: left = title/logo/plan detail; right =
+  right-aligned "you pay" value block. The value block is a fixed stack:
+  muted data-sm-low label -> display-xs value -> muted data-sm-low unit ->
+  optional copy-md text-actiontextactionenabled action link.
+
+  Render lists as one card with inset separators — not N separate cards and not
+  gap-spaced cards.
+
+violations:
+  - "Rendering each list item as its own Card"
+  - "Separating rows with gaps instead of inset Separators, or a trailing separator after the last row"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"

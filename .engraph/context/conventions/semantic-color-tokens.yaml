@@ -1,0 +1,33 @@
+id: semantic-color-tokens
+name: "Semantic Color Tokens"
+type: convention
+sub_type: code-convention
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Color comes from semantic Tailwind tokens backed by CSS vars in
+  src/styles.scss — e.g. text-colortexthighemphasisonlight,
+  actiontextactionenabled, actionactionactive, actionactionmidenabled,
+  bg-badgecharcoal, bg-surfaceaisurface, bg-backgroundaibackgroundenabled.
+
+  Inline hex is permitted ONLY when it equals a documented design-system value
+  that lacks a Tailwind class — e.g. #e2f8f6 (accent surface), #f2f4f4 (section
+  bg), #ebdccd (warm sand stroke), and documented rgba opacities such as
+  #00000099 / #000000de / black/10.
+
+  Do not introduce arbitrary colors (text-gray-600, #333, etc.) — they break
+  the single source of truth in index.css and defeat future theming.
+
+violations:
+  - "Using Tailwind palette utilities like text-gray-500 / bg-slate-100"
+  - "Introducing hex values not present in design-system.json / index.css"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+  - "src/styles.scss"

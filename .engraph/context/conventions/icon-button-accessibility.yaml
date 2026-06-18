@@ -1,0 +1,30 @@
+id: icon-button-accessibility
+name: "Icon Button Accessibility"
+type: convention
+sub_type: accessibility-standard
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Every icon-only button carries a descriptive aria-label (e.g. "Open menu",
+  "Notifications", "Profile", "Fullscreen", "Microphone", "Attachments"). Nav
+  regions are labeled (aria-label="Benefits quick links"), and the page uses
+  real landmarks (main, header, section, aside, footer, nav) with a correct
+  h1 -> h2 -> h3 heading order. See design.md §12.
+
+  Icon buttons with no visible text are invisible to screen readers unless
+  labeled. There is no linter here to catch a missing label, so add an
+  aria-label whenever you add an icon-only control.
+
+violations:
+  - "An icon-only button or img-only button with no aria-label"
+  - "Skipping heading levels (e.g. h1 directly to h3) within a section"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+  - "src/app/pages/sections/promotion-assistant/promotion-assistant.ts"

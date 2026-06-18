@@ -1,0 +1,32 @@
+id: card-body-footer-anatomy
+name: "Card Body + Footer Action Anatomy"
+type: convention
+sub_type: architectural-pattern
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Cards/panels share a vertical anatomy: a padded body region (px-6 pt-6 pb-2
+  style) followed by a <footer> action row
+  (flex justify-between px-4 pb-[18px] pt-1.5) holding the CTA.
+
+  CTAs are almost always <Button variant="ghost"> styled into a pill
+  (h-auto rounded-[50px] px-2 py-1.5) with hover:bg-transparent and an explicit
+  action color (text-actionactionactive). The single filled CTA (Bryte's
+  "Go to My Benefits") uses bg-actionactionmidenabled with text-[#0a1e18].
+  Card is always rounded-2xl border-0 shadow-none.
+
+  Place actions in a footer row, not inline in the body, and prefer the
+  ghost-pill treatment over a default solid Button.
+
+violations:
+  - "Using a default solid <Button> for an in-card action"
+  - "Placing CTAs inline in the card body instead of a footer row"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+  - "src/app/pages/sections/promotion-assistant/promotion-assistant.ts"

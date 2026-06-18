@@ -1,0 +1,695 @@
+{
+  "$schema": "https://design.tokens.community/schema",
+  "meta": {
+    "name": "Bryte / UKG Pro Design System",
+    "version": "1.0.0",
+    "figmaFile": "YO0rnWhL60rnsJ1QwzkP8G",
+    "figmaNode": "1:17746",
+    "description": "Design tokens, typography, color, spacing, and component definitions extracted from the UKG Pro Benefits dashboard Figma source file.",
+    "lastUpdated": "2025-06-11"
+  },
+
+  "color": {
+    "brand": {
+      "brand": { "value": "#13352C", "description": "Primary brand color — deep forest green" }
+    },
+    "action": {
+      "enabled": { "value": "#0E3B35", "description": "Primary interactive action color (CTA background)" },
+      "active": { "value": "#30258D", "description": "Pressed / active state (indigo)" },
+      "midEnabled": { "value": "rgba(120, 207, 184, 0.20)", "description": "Low-emphasis tinted action fill — used on chips/pills" },
+      "textActionEnabled": { "value": "#016CA2", "description": "Link / inline text action color" },
+      "brandDarker": { "value": "#005151", "description": "Darker brand action (hover on dark backgrounds)" },
+      "monochromeEnabledOnDark": { "value": "rgba(255, 255, 255, 0.94)", "description": "Monochrome icon/text on dark surfaces" },
+      "monochromeEnabledOnLight": { "value": "rgba(0, 0, 0, 0.65)", "description": "Monochrome icon/text on light surfaces" },
+      "monochromeLowEmphasisOnLight": { "value": "rgba(0, 0, 0, 0.43)", "description": "Low-emphasis monochrome on light" },
+      "onDarkHighEnabled": { "value": "#13352C", "description": "High-emphasis action on dark surface" }
+    },
+    "surface": {
+      "light": { "value": "#FFFFFF", "description": "Primary white surface" },
+      "lightDarker": { "value": "#F5F5F5", "description": "Slightly darkened background (section bg)" },
+      "accent": { "value": "#E2F8F6", "description": "Tinted accent surface (open-enrollment card)" },
+      "sectionBg": { "value": "#F2F4F4", "description": "Gray tinted section background (quick links area)" },
+      "aiSurface": {
+        "value": ["#FFFFFF", "#F5EBDC"],
+        "description": "AI panel surface — white to warm sand gradient"
+      },
+      "aiBackground": {
+        "value": ["#FFFFFF", "#F5EBDC"],
+        "description": "AI background enabled — used on user chat bubbles"
+      }
+    },
+    "text": {
+      "highEmphasisOnLight": { "value": "rgba(0, 0, 0, 0.87)", "description": "Primary text — most headings and body" },
+      "lowEmphasisOnLight": { "value": "rgba(0, 0, 0, 0.60)", "description": "Secondary / caption text" },
+      "disabledOnLight": { "value": "rgba(0, 0, 0, 0.30)", "description": "Disabled text" },
+      "highEmphasisOnDark": { "value": "#FFFFFF", "description": "White text on dark backgrounds" },
+      "bold": { "value": "rgba(0, 0, 0, 0.87)", "description": "Alias for bold text on light" }
+    },
+    "border": {
+      "lowEmphasisOnLight": { "value": "rgba(0, 0, 0, 0.10)", "description": "Subtle dividers, hairlines" },
+      "midEmphasisOnLight": { "value": "rgba(0, 0, 0, 0.15)", "description": "Card borders, medium dividers" },
+      "highEmphasisOnLight": { "value": "rgba(0, 0, 0, 0.42)", "description": "Prominent borders" },
+      "backgroundStroke": { "value": "#EBDCCD", "description": "Warm sand stroke — AI panel border, input borders" }
+    },
+    "badge": {
+      "charcoal": { "value": "#4F4F4F", "description": "Neutral badge / status dot" },
+      "important": { "value": "#E80D24", "description": "Critical / error badge" }
+    },
+    "annotation": {
+      "onDark": { "value": "rgba(237, 224, 255, 0.90)", "description": "Annotation overlay on dark surfaces" },
+      "onLight": { "value": "#8629FF", "description": "Annotation / label on light surfaces" }
+    },
+    "focus": {
+      "borderOnLight": { "value": "#549AC8", "description": "Keyboard focus ring on light backgrounds" },
+      "borderOnDark": { "value": "rgba(255, 255, 255, 0.65)", "description": "Keyboard focus ring on dark backgrounds" }
+    }
+  },
+
+  "typography": {
+    "fontFamilies": {
+      "dmSans": {
+        "value": "\"DM Sans\", Helvetica, sans-serif",
+        "description": "Primary UI font — headings, body, buttons, captions"
+      },
+      "notoSansDisplay": {
+        "value": "\"Noto Sans Display\", Helvetica, sans-serif",
+        "description": "Numeric / data font — tabular figures, metrics"
+      },
+      "volteRounded": {
+        "value": "\"Volte Rounded\", Helvetica, sans-serif",
+        "description": "Display / brand font — large promotional headings, button labels"
+      }
+    },
+
+    "scale": {
+      "displayMd": {
+        "fontFamily": "DM Sans",
+        "fontSize": "41px",
+        "fontWeight": 600,
+        "lineHeight": "48px",
+        "letterSpacing": "-0.25px",
+        "fontStyle": "normal",
+        "usage": "Hero numbers, enrollment dates, large data callouts"
+      },
+      "displaySm": {
+        "fontFamily": "DM Sans",
+        "fontSize": "32px",
+        "fontWeight": 600,
+        "lineHeight": "40px",
+        "letterSpacing": "-0.70px",
+        "fontStyle": "normal",
+        "usage": "Sub-hero display text"
+      },
+      "displayXs": {
+        "fontFamily": "Volte Rounded",
+        "fontSize": "26px",
+        "fontWeight": 500,
+        "lineHeight": "32px",
+        "letterSpacing": "-0.20px",
+        "fontStyle": "normal",
+        "usage": "Pay amounts, benefit cost figures"
+      },
+      "headingLg": {
+        "fontFamily": "DM Sans",
+        "fontSize": "26px",
+        "fontWeight": 600,
+        "lineHeight": "31px",
+        "letterSpacing": "-0.90px",
+        "fontStyle": "normal",
+        "usage": "Card section titles (e.g. 'It's open enrollment time!')"
+      },
+      "headingMd": {
+        "fontFamily": "DM Sans",
+        "fontSize": "23px",
+        "fontWeight": 600,
+        "lineHeight": "28px",
+        "letterSpacing": "-0.90px",
+        "fontStyle": "normal",
+        "usage": "Section headers (e.g. 'Your family's plans')"
+      },
+      "headingSm": {
+        "fontFamily": "DM Sans",
+        "fontSize": "20px",
+        "fontWeight": 600,
+        "lineHeight": "24px",
+        "letterSpacing": "-0.70px",
+        "fontStyle": "normal",
+        "usage": "Sub-section labels, plan names in headings"
+      },
+      "headingXs": {
+        "fontFamily": "DM Sans",
+        "fontSize": "18px",
+        "fontWeight": 600,
+        "lineHeight": "22px",
+        "letterSpacing": "-0.60px",
+        "fontStyle": "normal",
+        "usage": "Small section headings, benefit category names"
+      },
+      "headingBoxHeading": {
+        "fontFamily": "DM Sans",
+        "fontSize": "20px",
+        "fontWeight": 600,
+        "lineHeight": "21px",
+        "letterSpacing": "-1.00px",
+        "fontStyle": "normal",
+        "usage": "Widget / card title (tightly-spaced, compact)"
+      },
+      "headingVolteSemiboldS": {
+        "fontFamily": "Volte Rounded",
+        "fontSize": "20px",
+        "fontWeight": 600,
+        "lineHeight": "24px",
+        "letterSpacing": "-0.60px",
+        "fontStyle": "normal",
+        "usage": "Enrollment countdown, warm branded headings"
+      },
+      "navigationHeading": {
+        "fontFamily": "DM Sans",
+        "fontSize": "20px",
+        "fontWeight": 400,
+        "lineHeight": "24px",
+        "letterSpacing": "-0.20px",
+        "fontStyle": "normal",
+        "usage": "App header navigation titles, panel headers (e.g. 'Bryte')"
+      },
+      "copyMd": {
+        "fontFamily": "DM Sans",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "lineHeight": "24px",
+        "letterSpacing": "0.15px",
+        "fontStyle": "normal",
+        "usage": "Body text, paragraph descriptions, chat messages"
+      },
+      "copyItalic": {
+        "fontFamily": "DM Sans",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "lineHeight": "24px",
+        "letterSpacing": "0px",
+        "fontStyle": "italic",
+        "usage": "Attributed quotes, company messages, contextual captions"
+      },
+      "copySm": {
+        "fontFamily": "DM Sans",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "20px",
+        "letterSpacing": "0.15px",
+        "fontStyle": "normal",
+        "usage": "Secondary body text, metadata"
+      },
+      "copySmLink": {
+        "fontFamily": "DM Sans",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "20px",
+        "letterSpacing": "0.15px",
+        "fontStyle": "normal",
+        "usage": "Small inline links"
+      },
+      "dataMdHigh": {
+        "fontFamily": "Noto Sans Display",
+        "fontSize": "16px",
+        "fontWeight": 500,
+        "lineHeight": "22px",
+        "letterSpacing": "0px",
+        "fontStyle": "normal",
+        "usage": "High-emphasis data labels — plan names, enrolled members"
+      },
+      "dataMdMid": {
+        "fontFamily": "DM Sans",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "lineHeight": "22px",
+        "letterSpacing": "-0.35px",
+        "fontStyle": "normal",
+        "usage": "Medium-emphasis data values"
+      },
+      "dataSmHigh": {
+        "fontFamily": "Noto Sans Display",
+        "fontSize": "14px",
+        "fontWeight": 500,
+        "lineHeight": "18px",
+        "letterSpacing": "0px",
+        "fontStyle": "normal",
+        "usage": "Small data — covered member names, contribution values"
+      },
+      "dataSmMid": {
+        "fontFamily": "DM Sans",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "18px",
+        "letterSpacing": "-0.30px",
+        "fontStyle": "normal",
+        "usage": "Quick-link labels, secondary data text"
+      },
+      "dataSmLow": {
+        "fontFamily": "Noto Sans Display",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "18px",
+        "letterSpacing": "0px",
+        "fontStyle": "normal",
+        "usage": "Low-emphasis data — 'You pay', 'per paycheck' labels"
+      },
+      "dataXsCondensedHigh": {
+        "fontFamily": "DM Sans",
+        "fontSize": "12px",
+        "fontWeight": 700,
+        "lineHeight": "12px",
+        "letterSpacing": "-1.00px",
+        "fontStyle": "normal",
+        "usage": "Micro labels, badge counts, condensed numeric indicators"
+      },
+      "buttonLgEnabled": {
+        "fontFamily": "DM Sans",
+        "fontSize": "16px",
+        "fontWeight": 600,
+        "lineHeight": "18px",
+        "letterSpacing": "-0.90px",
+        "fontStyle": "normal",
+        "usage": "Large call-to-action buttons"
+      },
+      "buttonMdEnabled": {
+        "fontFamily": "DM Sans",
+        "fontSize": "14px",
+        "fontWeight": 600,
+        "lineHeight": "16px",
+        "letterSpacing": "-0.35px",
+        "fontStyle": "normal",
+        "usage": "Medium action buttons"
+      },
+      "buttonMdMonochrome": {
+        "fontFamily": "DM Sans",
+        "fontSize": "14px",
+        "fontWeight": 600,
+        "lineHeight": "16px",
+        "letterSpacing": "-0.35px",
+        "fontStyle": "normal",
+        "usage": "Ghost/icon+text buttons — monochrome variant"
+      },
+      "formSmEnabled": {
+        "fontFamily": "DM Sans",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "22px",
+        "letterSpacing": "-0.30px",
+        "fontStyle": "normal",
+        "usage": "Form field input text, search placeholder"
+      },
+      "avatarLg": {
+        "fontFamily": "DM Sans",
+        "fontSize": "28px",
+        "fontWeight": 600,
+        "lineHeight": "28px",
+        "letterSpacing": "2.00px",
+        "fontStyle": "normal",
+        "usage": "Large avatar initials"
+      },
+      "avatarSm": {
+        "fontFamily": "DM Sans",
+        "fontSize": "12px",
+        "fontWeight": 600,
+        "lineHeight": "12px",
+        "letterSpacing": "0.50px",
+        "fontStyle": "normal",
+        "usage": "Small avatar initials"
+      }
+    }
+  },
+
+  "spacing": {
+    "0": "0px",
+    "0.5": "2px",
+    "1": "4px",
+    "1.5": "6px",
+    "2": "8px",
+    "2.5": "10px",
+    "3": "12px",
+    "4": "16px",
+    "5": "20px",
+    "6": "24px",
+    "7": "28px",
+    "8": "32px",
+    "10": "40px",
+    "12": "48px",
+    "16": "64px",
+    "18": "72px",
+    "description": "8px base grid. Primary rhythm: 4, 8, 16, 24, 32, 48px"
+  },
+
+  "borderRadius": {
+    "none": "0px",
+    "sm": "4px",
+    "md": "8px",
+    "lg": "10px",
+    "xl": "12px",
+    "2xl": "16px",
+    "3xl": "20px",
+    "pill": "50px",
+    "extra": "48px",
+    "full": "9999px",
+    "description": "Cards use 2xl (16px). Buttons use pill (50px). Chat bubbles: 16px 4px 16px 16px. Avatar/icon buttons: full."
+  },
+
+  "shadow": {
+    "none": "none",
+    "description": "Elevation is communicated via background color contrast (white on gray) rather than drop shadows."
+  },
+
+  "animation": {
+    "fadeIn": {
+      "keyframes": "fade-in 1s ease forwards",
+      "from": { "opacity": 0, "transform": "translateY(-10px)" },
+      "to": { "opacity": 1, "transform": "none" }
+    },
+    "fadeUp": {
+      "keyframes": "fade-up 1s ease forwards",
+      "from": { "opacity": 0, "transform": "translateY(20px)" },
+      "to": { "opacity": 1, "transform": "none" }
+    },
+    "shimmer": {
+      "keyframes": "shimmer 8s infinite",
+      "description": "Loading skeleton shimmer"
+    },
+    "marquee": {
+      "keyframes": "marquee var(--duration) infinite linear",
+      "description": "Horizontal ticker / carousel strip"
+    },
+    "marqueeVertical": {
+      "keyframes": "marquee-vertical var(--duration) linear infinite",
+      "description": "Vertical ticker"
+    },
+    "accordionDown": {
+      "keyframes": "accordion-down 0.2s ease-out",
+      "description": "Radix accordion expand"
+    },
+    "accordionUp": {
+      "keyframes": "accordion-up 0.2s ease-out",
+      "description": "Radix accordion collapse"
+    }
+  },
+
+  "layout": {
+    "maxWidth": "1704px",
+    "contentMaxWidth": "960px",
+    "gridTemplate": "68fr 31fr",
+    "description": "Main viewport is 1704px. Two-column layout: 68% content + 31% AI panel. Content area centered to 960px max."
+  },
+
+  "components": {
+    "topNav": {
+      "description": "Application top navigation bar",
+      "height": "64px",
+      "background": "#FFFFFF",
+      "padding": "16px",
+      "elements": {
+        "hamburgerMenu": {
+          "type": "IconButton",
+          "size": "40px",
+          "borderRadius": "50px",
+          "icon": "icon.svg"
+        },
+        "divider": {
+          "type": "VerticalLine",
+          "color": "rgba(0,0,0,0.10)",
+          "width": "1px"
+        },
+        "logo": {
+          "type": "Image",
+          "src": "ukg-logo.svg",
+          "width": "61px",
+          "height": "24px"
+        },
+        "notificationIcon": {
+          "type": "IconButton",
+          "size": "40px",
+          "borderRadius": "50px",
+          "icon": "icon-7.svg"
+        },
+        "profileIcon": {
+          "type": "IconButton",
+          "size": "40px",
+          "borderRadius": "50px",
+          "icon": "icon-1.svg"
+        }
+      }
+    },
+
+    "pageHeader": {
+      "description": "Page title block beneath top nav",
+      "background": "#FFFFFF",
+      "padding": "16px 152px",
+      "maxContentWidth": "960px",
+      "elements": {
+        "title": {
+          "typography": "displayMd",
+          "color": "text.highEmphasisOnLight"
+        },
+        "subheading": {
+          "typography": "headingSm",
+          "color": "rgba(0,0,0,0.60)"
+        },
+        "divider": {
+          "type": "HorizontalLine",
+          "color": "rgba(0,0,0,0.10)",
+          "marginTop": "16px"
+        }
+      }
+    },
+
+    "enrollmentBannerCard": {
+      "description": "Open enrollment call-to-action card",
+      "background": "#E2F8F6",
+      "borderRadius": "2xl (16px)",
+      "border": "none",
+      "shadow": "none",
+      "height": "225px",
+      "layout": "two-column grid (1fr 260px)",
+      "backgroundImages": ["background.svg", "card-pattern.svg"],
+      "leftColumn": {
+        "padding": "24px 24px 18px",
+        "heading": { "typography": "headingLg", "color": "text.highEmphasisOnLight" },
+        "body": { "typography": "copyMd", "color": "text.highEmphasisOnLight" },
+        "cta": {
+          "type": "GhostButton",
+          "color": "action.active",
+          "typography": "buttonMdMonochrome",
+          "borderRadius": "50px"
+        }
+      },
+      "rightColumn": {
+        "padding": "24px",
+        "icon": {
+          "container": { "size": "48px", "borderRadius": "10.29px", "background": "rgba(48, 206, 187, 0.45)" },
+          "src": "calendar.svg",
+          "size": "20.57px"
+        },
+        "dateDisplay": { "typography": "displayMd", "color": "rgba(0,0,0,0.87)" },
+        "daysLeft": { "typography": "headingVolteSemiboldS", "color": "rgba(0,0,0,0.45)" },
+        "statusDot": {
+          "size": "12.75px",
+          "borderRadius": "full",
+          "color": "badge.charcoal",
+          "label": { "typography": "dataSmMid", "color": "rgba(0,0,0,0.60)" }
+        }
+      }
+    },
+
+    "quickLinkCard": {
+      "description": "Horizontal navigation card with image on left",
+      "background": "#FFFFFF",
+      "border": "1px solid rgba(0,0,0,0.15)",
+      "borderRadius": "2xl (16px)",
+      "layout": "row, image left + text right",
+      "imagePosition": "left/leading",
+      "textStyle": "dataSmMid",
+      "height": "56px",
+      "states": {
+        "hover": "cursor-pointer ring or shadow (default browser)",
+        "focus": "focus-visible ring 2px action.focusBorderOnLight"
+      }
+    },
+
+    "planRow": {
+      "description": "Single benefit plan row inside 'Your family's plans' card",
+      "background": "#FFFFFF",
+      "padding": "24px",
+      "layout": "row, space-between, items-center",
+      "separator": "1px rgba(0,0,0,0.10) — mx-6",
+      "leftBlock": {
+        "planTitle": { "fontSize": "18px", "fontWeight": 600, "fontFamily": "DM Sans", "lineHeight": "22px", "letterSpacing": "-0.60px" },
+        "providerLogo": "PNG image",
+        "planName": { "typography": "dataMdHigh" },
+        "detailLabel": { "typography": "dataSmMid" },
+        "detailValue": { "typography": "dataSmHigh" }
+      },
+      "rightBlock": {
+        "youPayLabel": { "typography": "dataSmLow", "color": "rgba(0,0,0,0.60)", "align": "right" },
+        "amount": { "typography": "displayXs", "color": "text.highEmphasisOnLight", "align": "right" },
+        "perPaycheckLabel": { "typography": "dataSmLow", "color": "rgba(0,0,0,0.60)", "align": "right" },
+        "changeLink": { "typography": "copyMd", "color": "action.textActionEnabled", "align": "right" }
+      }
+    },
+
+    "companySavingsWidget": {
+      "description": "Sidebar widget — company message card",
+      "background": "transparent",
+      "borderRadius": "2xl (16px)",
+      "elements": {
+        "eyebrow": { "typography": "copyItalic", "color": "rgba(0,0,0,0.60)" },
+        "title": { "typography": "headingBoxHeading", "color": "text.highEmphasisOnLight" },
+        "body": { "typography": "copyMd", "color": "text.highEmphasisOnLight" }
+      }
+    },
+
+    "tab": {
+      "description": "Navigation tab item",
+      "height": "46px",
+      "minWidth": "113px",
+      "padding": "14px 16px",
+      "typography": "buttonMdMonochrome",
+      "states": {
+        "selected": {
+          "selectedIndicator": {
+            "height": "4px",
+            "borderRadius": "2px",
+            "background": "action.enabled",
+            "position": "bottom-0"
+          }
+        },
+        "unselected": {
+          "selectedIndicator": "hidden"
+        },
+        "focused": {
+          "focusRing": "2px inset focus.borderOnLight"
+        }
+      },
+      "badge": {
+        "background": "surface.light",
+        "borderRadius": "full",
+        "minWidth": "19px",
+        "height": "16px",
+        "countTypography": "dataXsCondensedHigh"
+      }
+    },
+
+    "aiAssistantPanel": {
+      "description": "Right-rail Bryte AI assistant panel",
+      "width": "31fr (approximately 530px at 1704px viewport)",
+      "minHeight": "980px",
+      "background": "linear-gradient(0deg, rgba(245,235,220,0.20), rgba(245,235,220,0.20)), #FFFFFF",
+      "borderLeft": "1px solid #EBDCCD",
+      "header": {
+        "height": "52px",
+        "padding": "12px 24px",
+        "elements": {
+          "menuButton": { "type": "IconButton", "icon": "icon-8.svg", "borderRadius": "full", "padding": "8px" },
+          "bryteLogo": { "src": "bryte-logo.svg", "size": "24px" },
+          "panelTitle": { "typography": "navigationHeading", "color": "text.highEmphasisOnLight" },
+          "fullscreenButton": { "type": "IconButton", "icon": "fullscreen.svg", "borderRadius": "full", "padding": "8px" }
+        }
+      },
+      "chatArea": {
+        "padding": "0 24px",
+        "scrollable": true
+      },
+      "userBubble": {
+        "maxWidth": "100%",
+        "background": "linear-gradient(0deg, rgba(245,235,220,0.55), rgba(245,235,220,0.55)), #FFFFFF",
+        "borderRadius": "16px 4px 16px 16px",
+        "padding": "12px 20px",
+        "typography": "copyMd",
+        "color": "rgba(0,0,0,0.87)",
+        "align": "flex-end"
+      },
+      "assistantMessage": {
+        "typography": "copyMd",
+        "color": "text.highEmphasisOnLight",
+        "align": "flex-start",
+        "ctaButton": {
+          "background": "action.midEnabled",
+          "borderRadius": "50px",
+          "padding": "6px 16px",
+          "color": "#0A1E18",
+          "typography": "buttonMdMonochrome"
+        }
+      },
+      "inputBar": {
+        "background": "#FFFFFF",
+        "border": "1px solid #EBDCCD",
+        "borderRadius": "12px",
+        "padding": "6px 8px 6px 20px",
+        "margin": "0 24px",
+        "placeholder": {
+          "text": "Search or ask Bryte",
+          "typography": "formSmEnabled",
+          "color": "rgba(0,0,0,0.60)"
+        },
+        "actions": [
+          { "icon": "icon-5.svg", "label": "Attachments", "type": "IconButton" },
+          { "icon": "microphone.svg", "label": "Microphone", "type": "IconButton" }
+        ]
+      }
+    },
+
+    "button": {
+      "variants": {
+        "ghost": {
+          "background": "transparent",
+          "color": "inherited from context",
+          "borderRadius": "50px",
+          "hover": "bg-transparent (no bg change)",
+          "padding": "6px 8px"
+        },
+        "ctaPill": {
+          "background": "action.midEnabled (rgba(120,207,184,0.20))",
+          "color": "#0A1E18",
+          "borderRadius": "50px",
+          "padding": "6px 16px",
+          "typography": "buttonMdMonochrome"
+        },
+        "textLink": {
+          "background": "transparent",
+          "color": "action.textActionEnabled",
+          "typography": "copyMd"
+        }
+      }
+    }
+  },
+
+  "assets": {
+    "icons": [
+      { "name": "hamburger-menu", "file": "icon.svg" },
+      { "name": "notifications", "file": "icon-7.svg" },
+      { "name": "profile", "file": "icon-1.svg" },
+      { "name": "download", "file": "icon-3.svg" },
+      { "name": "attachment", "file": "icon-5.svg" },
+      { "name": "ai-assistant-open", "file": "icon-8.svg" },
+      { "name": "go-forward", "file": "go-forward.svg" },
+      { "name": "microphone", "file": "microphone.svg" },
+      { "name": "fullscreen", "file": "fullscreen.svg" },
+      { "name": "calendar", "file": "calendar.svg" }
+    ],
+    "logos": [
+      { "name": "ukg-logo", "file": "ukg-logo.svg" },
+      { "name": "bryte-logo", "file": "bryte-logo.svg" },
+      { "name": "bcbs-bitmap", "file": "bitmap.png" },
+      { "name": "payflex-hsa-bitmap", "file": "bitmap-1.png" },
+      { "name": "delta-dental", "file": "delta-dental-vector-logo-copy.png" }
+    ],
+    "backgrounds": [
+      { "name": "enrollment-card-bg", "file": "background.svg" },
+      { "name": "enrollment-card-pattern", "file": "card-pattern.svg" },
+      { "name": "chat-bottom-fade", "file": "bottom-cover.svg" },
+      { "name": "divider-line", "file": "line.svg" }
+    ],
+    "quickLinkImages": [
+      { "name": "compensation", "file": "image-section-3.svg" },
+      { "name": "ytd-summary", "file": "image-section.svg" },
+      { "name": "third-party-pay", "file": "image-section-2.svg" },
+      { "name": "direct-deposit", "file": "image-section-1.svg" }
+    ]
+  }
+}

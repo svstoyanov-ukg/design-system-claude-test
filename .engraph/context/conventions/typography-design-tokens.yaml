@@ -1,0 +1,45 @@
+id: typography-design-tokens
+name: "Typography via Figma Design Tokens"
+type: convention
+sub_type: code-convention
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  All design copy renders type through the Figma-derived token utilities, never
+  raw Tailwind text sizes. Each text node combines the token quartet:
+    font-{token}
+    text-[length:var(--{token}-font-size)]
+    font-[number:var(--{token}-font-weight)]
+    leading-[var(--{token}-line-height)]
+    tracking-[var(--{token}-letter-spacing)]
+    [font-style:var(--{token}-font-style)]
+
+  Tokens (display-md, heading-heading-lg, heading-heading-md, copy-md,
+  data-sm-high, data-md-high, navigation-heading, etc.) are defined as CSS
+  custom properties in src/styles.scss and mapped in tailwind.config.ts.
+
+  Type scale, line-height, and letter-spacing are inseparable — using a raw
+  size like `text-2xl font-semibold` drops three of the four values and drifts
+  from the spec. Always reach for the token quartet for visible design copy.
+
+examples:
+  - file: "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+    snippet: |
+      <h1 className="font-display-md text-[length:var(--display-md-font-size)] font-[number:var(--display-md-font-weight)] leading-[var(--display-md-line-height)] tracking-[var(--display-md-letter-spacing)] text-text-colortexthighemphasisonlight [font-style:var(--display-md-font-style)]">
+        Benefits
+      </h1>
+
+violations:
+  - "Using raw Tailwind sizes (text-sm, text-2xl, text-4xl) for design copy"
+  - "Setting font-size without the matching line-height/letter-spacing tokens"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+  - "src/app/pages/sections/promotion-assistant/promotion-assistant.ts"
+  - "src/styles.scss"

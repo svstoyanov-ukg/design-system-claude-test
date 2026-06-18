@@ -1,0 +1,37 @@
+id: page-section-structure
+name: "Page Section Component Structure"
+type: convention
+sub_type: architectural-pattern
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  The page is composed of self-contained standalone section components in
+  src/app/pages/sections/, one folder per section (kebab-case selector
+  `app-benefits-overview`, PascalCase class `BenefitsOverviewComponent`). Each
+  section declares its static content as readonly class fields
+  (quickLinks, planRows, moreChanges, messages) typed via interfaces, and
+  renders them in the template with `@for`. The Frame component
+  (src/app/pages/frame) assembles these sections inside the app-shell grid.
+
+  Keep data in typed component fields, not literals inlined in the template.
+  Sections are presentational: inputs in, no service/HTTP calls in the section
+  itself.
+
+  When adding a new dashboard section: generate a standalone component under
+  src/app/pages/sections/, hold mock/static content in readonly fields
+  (don't inline it in the template), and compose it from the Frame component.
+
+violations:
+  - "Inlining list data directly in the template instead of a typed class field"
+  - "Putting data-fetching/service logic inside a presentational section component"
+
+reference_files:
+  - "src/app/pages/frame/frame.ts"
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+  - "src/app/pages/sections/promotion-assistant/promotion-assistant.ts"

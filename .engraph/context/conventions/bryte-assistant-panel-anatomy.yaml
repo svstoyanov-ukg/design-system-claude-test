@@ -1,0 +1,37 @@
+id: bryte-assistant-panel-anatomy
+name: "Bryte AI Assistant Panel Anatomy"
+type: convention
+sub_type: architectural-pattern
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  The right <aside> is a self-contained chat surface with a fixed structure:
+  warm-sand background (bg-surfaceaisurface plus a layered
+  rgba(245,235,220,0.2) gradient) and border-l border-[#ebdccd], min-h-[980px],
+  laid out as header -> scrolling thread -> sticky input footer.
+
+    - Header: ghost rounded-full icon button + bryte-logo.svg + "Bryte"
+      (navigation-heading) + a right-aligned fullscreen ghost button.
+    - Thread: a ScrollArea flex-1; user messages right-aligned in a bubble with
+      asymmetric rounded-[16px_4px_16px_16px] and the AI-background gradient;
+      assistant replies left-aligned plain copy-md text with action chips below;
+      a sticky bottom-cover.svg fades the bottom edge.
+    - Footer: a rounded-xl border-[#ebdccd] bg-white input bar with a read-only
+      Input ("Search or ask Bryte") and trailing attachment/microphone
+      rounded-full ghost buttons.
+
+  The AI panel has its own color system (sand / ai-surface / ai-background
+  tokens) and bubble geometry that differ from the rest of the dashboard.
+  Future AI-panel work must stay within this structure and token set.
+
+violations:
+  - "Styling the AI panel with dashboard surface tokens instead of the ai/sand tokens"
+  - "Symmetric chat bubbles instead of the rounded-[16px_4px_16px_16px] user bubble"
+
+reference_files:
+  - "src/app/pages/sections/promotion-assistant/promotion-assistant.ts"

@@ -1,0 +1,33 @@
+id: heading-hierarchy-section-titles
+name: "Heading Hierarchy and Section Title Rows"
+type: convention
+sub_type: code-convention
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Headings map to fixed typography tokens by role, never by eyeballed size:
+    - display-md         -> page title ("Benefits") and the large date stat
+    - heading-heading-lg -> hero card title
+    - heading-heading-md -> section titles ("Your family's plans", "More changes")
+    - heading-box-heading -> in-card titles ("Company savings plan")
+    - navigation-heading -> the "Bryte" wordmark
+
+  Section titles render as a consistent row: an <h3 font-heading-heading-md>
+  taking flex-1 on the left, an optional trailing ghost-pill action on the
+  right (e.g. "Download summary" with a leading icon), and pb-4 below the title
+  before its card. The page header pairs <h1> with a heading-heading-sm muted
+  (#00000099) subtitle, followed by an h-px bg-black/10 divider.
+
+violations:
+  - "Choosing a heading token by visual size instead of by role"
+  - "Omitting the pb-4 gap or divider in titled section rows"
+
+reference_files:
+  - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
+  - "src/app/pages/sections/promotion-assistant/promotion-assistant.ts"
