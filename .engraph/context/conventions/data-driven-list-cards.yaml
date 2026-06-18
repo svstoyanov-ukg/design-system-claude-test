@@ -20,12 +20,22 @@ description: |
   muted data-sm-low label -> display-xs value -> muted data-sm-low unit ->
   optional copy-md text-actiontextactionenabled action link.
 
+  Color hierarchy within a row (three levels of emphasis):
+    1. Primary   — row title, monetary amounts: text-colortexthighemphasisonlight  (rgba 0,0,0 / 0.87)
+    2. Secondary — category labels, type chips: text-colortextlowemphasisonlight   (rgba 0,0,0 / 0.60)
+    3. Tertiary  — dates, metadata, sub-labels: text-colortextdisabledonlight      (rgba 0,0,0 / 0.30)
+
+  Use the tertiary token for any supporting metadata (dates, IDs, secondary
+  descriptors) that should read after the primary value and title — not
+  low-emphasis (0.60), which is reserved for interactive or category labels.
+
   Render lists as one card with inset separators — not N separate cards and not
   gap-spaced cards.
 
 violations:
   - "Rendering each list item as its own Card"
   - "Separating rows with gaps instead of inset Separators, or a trailing separator after the last row"
+  - "Using text-colortextlowemphasisonlight (0.60) for dates or metadata — use the tertiary 0.30 token instead"
 
 reference_files:
   - "src/app/pages/sections/benefits-overview/benefits-overview.ts"
