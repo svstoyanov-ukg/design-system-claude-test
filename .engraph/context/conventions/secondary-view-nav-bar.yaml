@@ -1,0 +1,53 @@
+id: secondary-view-nav-bar
+name: "Secondary View Navigation Bar"
+type: convention
+sub_type: architectural-pattern
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Secondary routed views (detail screens opened from the main Benefits shell) use
+  a dedicated nav bar that differs from the global top nav. The structure is:
+    back-button (rounded-full, aria-label="Go back", navigates to "/") →
+    1px divider (bg-black/10, full height) →
+    hamburger icon button (icon.svg, rounded-full) →
+    ukg-logo.svg (61×24px)
+
+  Height is always h-16 bg-white. The back button calls router.navigate(['/'])
+  — never Location.back() — so the destination is deterministic regardless of
+  browser history.
+
+  Icon buttons follow the same ghost treatment as the global nav: no background
+  on hover, focus-visible ring-2 ring-focusfocusborderonlight ring-offset-1,
+  rounded-full, aria-label required.
+
+  Use back-arrow.svg from /figmaAssets for the back button icon.
+
+examples:
+  - file: "src/app/pages/compensation/compensation.html"
+    snippet: |
+      <header class="h-16 bg-white flex items-center px-4 gap-2">
+        <button class="flex h-10 w-10 items-center justify-center rounded-full ..."
+                aria-label="Go back" (click)="navigateBack()">
+          <img src="/figmaAssets/back-arrow.svg" width="24" height="24" alt="" />
+        </button>
+        <div class="h-full w-px bg-black/10 mx-1"></div>
+        <button class="flex h-10 w-10 items-center justify-center rounded-full ..."
+                aria-label="Open menu">
+          <img src="/figmaAssets/icon.svg" width="24" height="24" alt="" />
+        </button>
+        <img src="/figmaAssets/ukg-logo.svg" width="61" height="24" alt="UKG" />
+      </header>
+
+violations:
+  - "Using Location.back() instead of router.navigate(['/']) for the back action"
+  - "Missing aria-label on the back or menu icon button"
+  - "Using a fixed-width sidebar nav instead of this h-16 top bar for secondary views"
+
+reference_files:
+  - "src/app/pages/compensation/compensation.ts"
+  - "src/app/pages/compensation/compensation.html"

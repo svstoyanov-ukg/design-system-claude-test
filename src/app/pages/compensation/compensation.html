@@ -1,0 +1,161 @@
+<div class="min-h-screen bg-[#f2f4f4]">
+
+  <!-- Top Navigation Bar -->
+  <header class="h-16 bg-white flex items-center px-4 gap-2" data-testid="top-nav">
+    <button
+      class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focusfocusborderonlight focus-visible:ring-offset-1"
+      aria-label="Go back"
+      data-testid="back-button"
+      (click)="navigateBack()"
+    >
+      <img src="/figmaAssets/back-arrow.svg" width="24" height="24" alt="" />
+    </button>
+
+    <div class="h-full w-px bg-black/10 mx-1"></div>
+
+    <button
+      class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focusfocusborderonlight focus-visible:ring-offset-1"
+      aria-label="Open menu"
+      data-testid="menu-button"
+    >
+      <img src="/figmaAssets/icon.svg" width="24" height="24" alt="" />
+    </button>
+
+    <img src="/figmaAssets/ukg-logo.svg" width="61" height="24" alt="UKG" class="ml-1" />
+  </header>
+
+  <!-- Page Content -->
+  <main class="mx-auto max-w-[960px] px-4 sm:px-8 lg:px-[152px] py-8" data-testid="compensation-page">
+
+    <!-- User Hero Card -->
+    <section
+      class="rounded-2xl bg-white shadow-none border-0 mb-6"
+      aria-label="User compensation summary"
+      data-testid="user-hero-card"
+    >
+      <div class="flex items-center gap-4 p-6">
+        <!-- Avatar -->
+        <div
+          class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brandbrand"
+          aria-hidden="true"
+          data-testid="user-avatar"
+        >
+          <span class="font-avatar-sm text-[length:var(--avatar-sm-font-size)] font-[number:var(--avatar-sm-font-weight)] leading-[var(--avatar-sm-line-height)] tracking-[var(--avatar-sm-letter-spacing)] text-text-colortexthighemphasisondark">
+            {{ initials }}
+          </span>
+        </div>
+
+        <!-- Name -->
+        <div class="flex-1 min-w-0">
+          <h1
+            class="font-heading-heading-md text-[length:var(--heading-heading-md-font-size)] font-[number:var(--heading-heading-md-font-weight)] leading-[var(--heading-heading-md-line-height)] tracking-[var(--heading-heading-md-letter-spacing)] text-text-colortexthighemphasisonlight truncate"
+            data-testid="user-name"
+          >
+            {{ user.userName }}
+          </h1>
+        </div>
+
+        <!-- Balance + Category -->
+        <div class="flex flex-col items-end gap-0.5 shrink-0" data-testid="balance-block">
+          <span
+            class="font-data-sm-low text-[length:var(--data-sm-low-font-size)] font-[number:var(--data-sm-low-font-weight)] leading-[var(--data-sm-low-line-height)] tracking-[var(--data-sm-low-letter-spacing)] text-text-colortextlowemphasisonlight"
+          >
+            {{ formatCurrency(user.balanceLeft) }} left
+          </span>
+          <span
+            class="font-data-sm-mid text-[length:var(--data-sm-mid-font-size)] font-[number:var(--data-sm-mid-font-weight)] leading-[var(--data-sm-mid-line-height)] tracking-[var(--data-sm-mid-letter-spacing)] text-text-colortexthighemphasisonlight"
+          >
+            {{ user.category }}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- History Section -->
+    <section aria-label="Reimbursement history" data-testid="history-section">
+
+      <!-- Section Title Row -->
+      <div class="flex items-center pb-4">
+        <h2
+          class="flex-1 font-heading-heading-md text-[length:var(--heading-heading-md-font-size)] font-[number:var(--heading-heading-md-font-weight)] leading-[var(--heading-heading-md-line-height)] tracking-[var(--heading-heading-md-letter-spacing)] text-text-colortexthighemphasisonlight"
+          data-testid="history-title"
+        >
+          History
+        </h2>
+      </div>
+
+      <!-- Reimbursement List Card -->
+      <div
+        class="rounded-2xl bg-white shadow-none border-0 overflow-hidden"
+        data-testid="reimbursement-list"
+      >
+        @for (item of user.reimbursements; track item.id; let last = $last) {
+
+          <!-- Reimbursement Row -->
+          <div
+            class="flex items-center gap-4 p-6"
+            [attr.data-testid]="'reimbursement-row-' + item.id"
+          >
+            <!-- Left: title + date -->
+            <div class="flex-1 min-w-0">
+              <p
+                class="font-data-md-high text-[length:var(--data-md-high-font-size)] font-[number:var(--data-md-high-font-weight)] leading-[var(--data-md-high-line-height)] tracking-[var(--data-md-high-letter-spacing)] text-text-colortexthighemphasisonlight truncate"
+              >
+                {{ item.title }}
+              </p>
+              <p
+                class="font-data-sm-low text-[length:var(--data-sm-low-font-size)] font-[number:var(--data-sm-low-font-weight)] leading-[var(--data-sm-low-line-height)] tracking-[var(--data-sm-low-letter-spacing)] text-text-colortextlowemphasisonlight mt-0.5"
+              >
+                {{ item.date }}
+              </p>
+            </div>
+
+            <!-- Right: amount + type chip + status -->
+            <div class="flex flex-col items-end gap-1.5 shrink-0">
+              <span
+                class="font-display-xs text-[length:var(--display-xs-font-size)] font-[number:var(--display-xs-font-weight)] leading-[var(--display-xs-line-height)] tracking-[var(--display-xs-letter-spacing)] text-text-colortexthighemphasisonlight"
+              >
+                {{ formatCurrency(item.amount) }}
+              </span>
+
+              <!-- Status + type pill row -->
+              <div class="flex items-center gap-2">
+                <!-- Status dot -->
+                @if (item.status === 'received') {
+                  <span
+                    class="inline-flex items-center gap-1.5 rounded-[50px] bg-actionactionmidenabled px-2 py-1"
+                    [attr.data-testid]="'status-received-' + item.id"
+                  >
+                    <span class="h-2 w-2 rounded-full bg-actionactionenabled shrink-0"></span>
+                    <span
+                      class="font-data-sm-low text-[length:var(--data-sm-low-font-size)] font-[number:var(--data-sm-low-font-weight)] leading-[var(--data-sm-low-line-height)] tracking-[var(--data-sm-low-letter-spacing)] text-actionactionenabled"
+                    >Received</span>
+                  </span>
+                } @else {
+                  <span
+                    class="inline-flex items-center gap-1.5 rounded-[50px] bg-[rgba(0,0,0,0.05)] px-2 py-1"
+                    [attr.data-testid]="'status-pending-' + item.id"
+                  >
+                    <span class="h-2 w-2 rounded-full bg-badgecharcoal shrink-0"></span>
+                    <span
+                      class="font-data-sm-low text-[length:var(--data-sm-low-font-size)] font-[number:var(--data-sm-low-font-weight)] leading-[var(--data-sm-low-line-height)] tracking-[var(--data-sm-low-letter-spacing)] text-badgecharcoal"
+                    >Pending</span>
+                  </span>
+                }
+              </div>
+            </div>
+          </div>
+
+          <!-- Inset Separator — between rows only, not after last -->
+          @if (!last) {
+            <div class="mx-6 h-px bg-black/10"></div>
+          }
+
+        }
+      </div>
+
+    </section>
+
+  </main>
+
+</div>

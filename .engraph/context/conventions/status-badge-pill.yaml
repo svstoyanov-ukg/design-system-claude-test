@@ -1,0 +1,47 @@
+id: status-badge-pill
+name: "Status Badge Pill (received / pending)"
+type: convention
+sub_type: code-convention
+enforcement: recommended
+applies_to_modules:
+  - "src/app/pages/sections"
+  - "src/app/pages"
+provenance: detected
+created: "2026-06-18"
+last_updated: "2026-06-18"
+
+description: |
+  Status states on list rows are communicated with a pill containing a dot +
+  label, not a standalone dot or a text-only label. The pill is always
+  rounded-[50px] with inline-flex items-center gap-1.5 px-2 py-1.
+
+  Token mapping by status:
+    received  → bg-actionactionmidenabled  dot bg-actionactionenabled  text-actionactionenabled
+    pending   → bg-[rgba(0,0,0,0.05)]      dot bg-badgecharcoal        text-badgecharcoal
+
+  The dot is always h-2 w-2 rounded-full shrink-0. The label uses the
+  data-sm-low token quartet. New statuses should follow the same structure and
+  pick a semantic token (never an arbitrary color) for the bg/dot/text triple.
+
+examples:
+  - file: "src/app/pages/compensation/compensation.html"
+    snippet: |
+      <!-- received -->
+      <span class="inline-flex items-center gap-1.5 rounded-[50px] bg-actionactionmidenabled px-2 py-1">
+        <span class="h-2 w-2 rounded-full bg-actionactionenabled shrink-0"></span>
+        <span class="font-data-sm-low text-[length:var(--data-sm-low-font-size)] ... text-actionactionenabled">Received</span>
+      </span>
+
+      <!-- pending -->
+      <span class="inline-flex items-center gap-1.5 rounded-[50px] bg-[rgba(0,0,0,0.05)] px-2 py-1">
+        <span class="h-2 w-2 rounded-full bg-badgecharcoal shrink-0"></span>
+        <span class="font-data-sm-low text-[length:var(--data-sm-low-font-size)] ... text-badgecharcoal">Pending</span>
+      </span>
+
+violations:
+  - "Using a standalone colored dot without a label"
+  - "Using arbitrary colors (text-green-500, bg-yellow-100) instead of semantic tokens"
+  - "Using rounded-md or rounded-lg instead of rounded-[50px] on the status pill"
+
+reference_files:
+  - "src/app/pages/compensation/compensation.html"
